@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary SEO Meta Tags for Google Search Indexing -->
+  <title>FASHION FEVER | Luxury Fashion, Couture & Streetwear Online Store</title>
+  <meta name="title" content="FASHION FEVER | Luxury Fashion, Couture & Streetwear Online Store" />
+  <meta name="description" content="Discover the latest luxury fashion trends at Fashion Fever. Shop men's & women's couture, streetwear drops, designer footwear, and luxury accessories with fast delivery and instant order placement." />
+  <meta name="keywords" content="Fashion Fever, luxury clothing, designer wear, streetwear, dresses, suits, hoodies, sneakers, online shopping, fashion trends" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Fashion Fever Boutique" />
+
+  <!-- Google Verification & Social Open Graph Tags -->
+  <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE_HERE" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://fashionfever.shop/" />
+  <meta property="og:title" content="FASHION FEVER | Elevate Your Wardrobe" />
+  <meta property="og:description" content="Curated luxury fashion, streetwear, and designer accessories. Place your order with instant tracking." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=80" />
+
+  <!-- Schema.org JSON-LD Structured Data for Google Search Rich Results -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "OnlineStore",
+    "name": "FASHION FEVER",
+    "url": "https://fashionfever.shop",
+    "logo": "https://images.unsplash.com/photo-1584273143981-41c073dfe8f8?auto=format&fit=crop&w=200&q=80",
+    "description": "Premium luxury fashion and streetwear boutique online.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://fashionfever.shop/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Custom Aesthetic CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Announcement Bar / Ticker -->
+  <div class="announcement-bar">
+    <span>✨ GRAND LAUNCH SALE: FLAT 20% OFF WITH CODE <span class="badge-pill">FEVER20</span></span>
+    <span>⚡ FREE EXPRESS DELIVERY ON ORDERS OVER ₹1,999</span>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-logo" aria-label="Fashion Fever Homepage">
+        <span class="brand-title">FASHION FEVER</span>
+        <span class="brand-subtitle">Haute Couture & Streetwear</span>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#categories" class="nav-link">Categories</a></li>
+          <li><a href="#shop" class="nav-link" onclick="filterByCategory('all')">Shop All</a></li>
+          <li><a href="#shop" class="nav-link" onclick="filterByCategory('women')">Women</a></li>
+          <li><a href="#shop" class="nav-link" onclick="filterByCategory('men')">Men</a></li>
+          <li><a href="#shop" class="nav-link" onclick="filterByCategory('streetwear')">Streetwear</a></li>
+        </ul>
+      </nav>
+
+      <!-- Nav Actions (Search, Wishlist, Cart, Profile) -->
+      <div class="nav-actions">
+        <!-- Wishlist Button -->
+        <button class="icon-btn" id="wishlistTrigger" title="My Wishlist" onclick="filterByCategory('all')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path>
+          </svg>
+          <span class="counter-badge" id="wishlistBadge" style="display: none;">0</span>
+        </button>
+
+        <!-- Cart Drawer Button -->
+        <button class="icon-btn" id="cartTrigger" title="Shopping Bag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="counter-badge" id="cartBadge" style="display: none;">0</span>
+        </button>
+
+        <!-- Account / Sign In Trigger -->
+        <button class="user-btn-text" id="authTrigger">
+          <span id="userBtnText">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+            <span>Sign In</span>
+          </span>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="icon-btn mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle Navigation">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Showcase Section -->
+  <section class="hero-section" id="home">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+    
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <span>✨ S/S 2026 Haute Drop</span>
+        </div>
+        <h1 class="hero-title">
+          Unleash The <br />
+          <span class="gradient-text">Fashion Fever</span> Within
+        </h1>
+        <p class="hero-subtitle">
+          Where ultra-modern aesthetics meet Parisian tailoring. Explore statement streetwear, handcrafted leather, and red-carpet couture designed for the fearless.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#shop" class="btn-luxury" onclick="filterByCategory('all')">
+            Explore Collection
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="#shop" class="btn-glass" onclick="filterByCategory('streetwear')">
+            Shop Streetwear Drops
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h4>10k+</h4>
+            <p>Verified Reviews</p>
+          </div>
+          <div class="stat-item">
+            <h4>100%</h4>
+            <p>Authentic Luxury</p>
+          </div>
+          <div class="stat-item">
+            <h4>48 Hrs</h4>
+            <p>Express Dispatch</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Frame -->
+      <div class="hero-media-wrapper">
+        <div class="hero-image-frame">
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=80" alt="Fashion Fever Haute Couture Model" />
+        </div>
+
+        <!-- Floating Testimonial Card -->
+        <div class="hero-floating-card">
+          <div class="floating-avatar">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="User Avatar" />
+          </div>
+          <div class="floating-info">
+            <h5>"Unbelievable Quality & Fit"</h5>
+            <p>★★★★★ Rated 4.9 by Trendsetters</p>
+          </div>
+        </div>
+
+        <div class="hero-floating-badge">
+          <span>EXCLUSIVE DROP</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Showcase Section -->
+  <section class="categories-section" id="categories">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Curated Edits</span>
+        <h2 class="section-title">Shop By Categories</h2>
+        <p class="section-description">Handpicked silhouettes designed for every occasion and elevated lifestyle.</p>
+      </div>
+
+      <div class="category-grid">
+        <!-- Women's Couture -->
+        <div class="category-card" onclick="filterByCategory('women')">
+          <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=600&q=80" alt="Women's Couture" />
+          <div class="category-content">
+            <h3>Women's Couture</h3>
+            <span>Explore Edit ➔</span>
+          </div>
+        </div>
+
+        <!-- Men's Luxury -->
+        <div class="category-card" onclick="filterByCategory('men')">
+          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80" alt="Men's Luxury" />
+          <div class="category-content">
+            <h3>Men's Luxury</h3>
+            <span>Explore Edit ➔</span>
+          </div>
+        </div>
+
+        <!-- Streetwear Drops -->
+        <div class="category-card" onclick="filterByCategory('streetwear')">
+          <img src="https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=600&q=80" alt="Streetwear Drops" />
+          <div class="category-content">
+            <h3>Streetwear Drops</h3>
+            <span>Explore Edit ➔</span>
+          </div>
+        </div>
+
+        <!-- Footwear & Kicks -->
+        <div class="category-card" onclick="filterByCategory('footwear')">
+          <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=600&q=80" alt="Footwear & Kicks" />
+          <div class="category-content">
+            <h3>Footwear & Kicks</h3>
+            <span>Explore Edit ➔</span>
+          </div>
+        </div>
+
+        <!-- Luxury Accessories -->
+        <div class="category-card" onclick="filterByCategory('accessories')">
+          <img src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=600&q=80" alt="Luxury Accessories" />
+          <div class="category-content">
+            <h3>Accessories</h3>
+            <span>Explore Edit ➔</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Product Catalog & Interactive Store Section -->
+  <section class="shop-section" id="shop">
+    <div class="container" id="shopSection">
+      <div class="section-header">
+        <span class="section-tag">Signature Catalog</span>
+        <h2 class="section-title">Trending Styles & Drops</h2>
+        <p class="section-description">Filter by category, search your favourite style, and place your order instantly.</p>
+      </div>
+
+      <!-- Filter Controls Toolbar -->
+      <div class="shop-toolbar">
+        <!-- Category Filter Tabs -->
+        <div class="filter-tabs">
+          <button class="filter-pill active" data-category="all">All Styles</button>
+          <button class="filter-pill" data-category="women">Women's Couture</button>
+          <button class="filter-pill" data-category="men">Men's Luxury</button>
+          <button class="filter-pill" data-category="streetwear">Streetwear</button>
+          <button class="filter-pill" data-category="footwear">Footwear</button>
+          <button class="filter-pill" data-category="accessories">Accessories</button>
+        </div>
+
+        <!-- Toolbar Actions (Live Search & Sort) -->
+        <div class="toolbar-actions">
+          <div class="search-input-wrapper">
+            <svg class="search-icon-inside" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="searchInput" class="search-input" placeholder="Search dresses, hoodies, blazers..." />
+          </div>
+
+          <select class="custom-select" id="sortSelect" aria-label="Sort products">
+            <option value="featured">Featured Picks</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="rating">Top Customer Rated</option>
+            <option value="popular">Most Popular</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" id="productsGrid">
+        <!-- Injected dynamically via js/app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Exclusive VIP Promo Section -->
+  <section class="promo-banner-section">
+    <div class="container">
+      <div class="promo-card">
+        <div class="promo-content">
+          <span class="section-tag">Member Privilege</span>
+          <h2>Unlock 20% Off Your First Order</h2>
+          <p>Join the Fashion Fever movement today. Use code below during checkout for immediate 20% savings on all couture and streetwear.</p>
+          
+          <div class="coupon-box">
+            <span class="coupon-code">FEVER20</span>
+            <button class="btn-copy-code" onclick="copyCoupon('FEVER20')">Copy Code</button>
+          </div>
+          <div>
+            <a href="#shop" class="btn-luxury" onclick="filterByCategory('all')">Shop With Discount ➔</a>
+          </div>
+        </div>
+
+        <div style="position: relative; display: flex; justify-content: center;">
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80" alt="VIP Fashion Collection" style="border-radius: 18px; max-height: 320px; object-fit: cover; border: 1px solid var(--border-accent);" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide-Over Shopping Cart Drawer -->
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping Cart Drawer">
+    <div class="drawer-header">
+      <h3>
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 0 1-8 0"></path>
+        </svg>
+        Shopping Bag
+      </h3>
+      <button class="drawer-close-btn" id="closeCartBtn" aria-label="Close Shopping Bag">✕</button>
+    </div>
+
+    <!-- Free Delivery Goal Progress -->
+    <div class="shipping-progress-box" id="shippingProgressBox">
+      <div class="shipping-progress-text" id="shippingProgressText">
+        Add <span class="highlight">₹1,999</span> more for Free Express Delivery!
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill" id="shippingProgressFill"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items Scroll Area -->
+    <div class="drawer-body" id="cartItemsContainer">
+      <!-- Items dynamically populated via js/app.js -->
+    </div>
+
+    <!-- Empty State -->
+    <div class="cart-empty-view" id="cartEmptyView">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <path d="M16 10a4 4 0 0 1-8 0"></path>
+      </svg>
+      <h4>Your Bag is Empty</h4>
+      <p>Explore our trending drops and add luxury pieces to your wardrobe.</p>
+      <button class="btn-luxury" onclick="closeCartDrawer(); filterByCategory('all');">Start Shopping</button>
+    </div>
+
+    <!-- Cart Footer & Checkout Summary -->
+    <div class="drawer-footer" id="cartFooter">
+      <div class="cart-coupon-form">
+        <input type="text" id="cartCouponInput" class="coupon-input" placeholder="Promo Code (e.g. FEVER20)" />
+        <button class="btn-apply-coupon" id="applyCouponBtn">Apply</button>
+      </div>
+
+      <div class="bill-row">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">₹0</span>
+      </div>
+      <div class="bill-row discount" id="cartDiscountRow" style="display: none;">
+        <span>Promo Discount</span>
+        <span id="cartDiscount">-₹0</span>
+      </div>
+      <div class="bill-row">
+        <span>Estimated GST (5%)</span>
+        <span id="cartTax">₹0</span>
+      </div>
+      <div class="bill-row">
+        <span>Express Delivery</span>
+        <span id="cartShipping">₹199</span>
+      </div>
+      <div class="bill-row total">
+        <span>Total Amount</span>
+        <span id="cartTotal">₹0</span>
+      </div>
+
+      <button class="btn-luxury btn-checkout-full" id="proceedCheckoutBtn">
+        Proceed to Checkout ➔
+      </button>
+    </div>
+  </aside>
+
+  <!-- Quick-View Product Modal -->
+  <div class="modal-overlay" id="quickViewModal">
+    <div class="modal-window" style="max-width: 860px;">
+      <button class="modal-close-icon" onclick="closeModal('quickViewModal')">✕</button>
+      <div id="quickViewContent">
+        <!-- Rendered via js/app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Multi-Step Checkout Modal -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-window checkout-modal">
+      <button class="modal-close-icon" onclick="closeModal('checkoutModal')">✕</button>
+      
+      <div class="checkout-header">
+        <h3>Secure Checkout</h3>
+        <div class="checkout-steps">
+          <div class="step-indicator active" id="stepIndicator1">
+            <span class="step-num">1</span>
+            <span>Delivery</span>
+          </div>
+          <div class="step-indicator" id="stepIndicator2">
+            <span class="step-num">2</span>
+            <span>Payment</span>
+          </div>
+          <div class="step-indicator" id="stepIndicator3">
+            <span class="step-num">3</span>
+            <span>Confirmation</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="checkout-body" id="checkoutModalBody">
+        <!-- Rendered via js/app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Success Modal -->
+  <div class="modal-overlay" id="orderSuccessModal">
+    <div class="modal-window" style="max-width: 580px;">
+      <button class="modal-close-icon" onclick="closeModal('orderSuccessModal')">✕</button>
+      <div id="orderSuccessContent">
+        <!-- Rendered via js/app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- User Authentication Modal (Login / Sign-Up & Google Integration) -->
+  <div class="modal-overlay" id="authModal">
+    <div class="modal-window auth-modal">
+      <button class="modal-close-icon" onclick="closeModal('authModal')">✕</button>
+      <div class="auth-modal-content">
+        <div class="auth-tabs">
+          <button class="auth-tab-btn active" id="loginTabBtn">Sign In</button>
+          <button class="auth-tab-btn" id="signupTabBtn">Create Account</button>
+        </div>
+
+        <!-- Google One-Tap / OAuth Ready Button -->
+        <button class="btn-google-auth" id="googleAuthBtn">
+          <svg viewBox="0 0 24 24" width="20" height="20">
+            <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/>
+            <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/>
+            <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z"/>
+            <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z"/>
+          </svg>
+          Continue with Google
+        </button>
+
+        <div class="auth-divider">
+          <span>Or with Email</span>
+        </div>
+
+        <!-- Login Form -->
+        <form id="loginForm">
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label>Email Address</label>
+            <input type="email" id="loginEmail" class="form-control" placeholder="your.name@example.com" required />
+          </div>
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label>Password</label>
+            <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" required />
+          </div>
+          <button type="submit" class="btn-luxury" style="width: 100%;">Sign In</button>
+        </form>
+
+        <!-- Sign-Up Form -->
+        <form id="signupForm" style="display: none;">
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label>Full Name</label>
+            <input type="text" id="signupName" class="form-control" placeholder="e.g. Priya Kapoor" required />
+          </div>
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label>Email Address</label>
+            <input type="email" id="signupEmail" class="form-control" placeholder="your.name@example.com" required />
+          </div>
+          <div class="form-group" style="margin-bottom: 1.5rem;">
+            <label>Create Password</label>
+            <input type="password" id="signupPassword" class="form-control" placeholder="••••••••" required />
+          </div>
+          <button type="submit" class="btn-luxury" style="width: 100%;">Create Account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- User Profile & Order History Modal -->
+  <div class="modal-overlay" id="profileModal">
+    <div class="modal-window profile-modal">
+      <button class="modal-close-icon" onclick="closeModal('profileModal')">✕</button>
+      <div id="profileModalContent">
+        <!-- Injected via js/app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Luxury Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="brand-logo">
+            <span class="brand-title">FASHION FEVER</span>
+            <span class="brand-subtitle">Haute Couture & Streetwear</span>
+          </a>
+          <p>Redefining modern luxury with bold silhouettes, premium fabrics, and sustainable craft. Fashion for those who set the trend.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Collections</h4>
+          <ul class="footer-links">
+            <li><a href="#shop" onclick="filterByCategory('women')">Women's Couture</a></li>
+            <li><a href="#shop" onclick="filterByCategory('men')">Men's Luxury</a></li>
+            <li><a href="#shop" onclick="filterByCategory('streetwear')">Streetwear Drops</a></li>
+            <li><a href="#shop" onclick="filterByCategory('footwear')">Footwear & Kicks</a></li>
+            <li><a href="#shop" onclick="filterByCategory('accessories')">Luxury Accessories</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Customer Care</h4>
+          <ul class="footer-links">
+            <li><a href="#home" onclick="showToast('Order tracking active via Profile Modal!', 'info')">Track Order</a></li>
+            <li><a href="#home" onclick="showToast('Free 7-day hassle-free returns enabled.', 'info')">Returns & Exchanges</a></li>
+            <li><a href="#home" onclick="showToast('Standard Shipping: 2-3 Days across India', 'info')">Shipping Policy</a></li>
+            <li><a href="#home" onclick="showToast('Support: support@fashionfever.shop', 'info')">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Join The Fever Club</h4>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 0.8rem;">Subscribe for private drop alerts, secret discount codes, and fashion forecasts.</p>
+          <form class="newsletter-form" id="newsletterForm">
+            <input type="email" class="newsletter-input" placeholder="Enter your email" required />
+            <button type="submit" class="btn-luxury" style="padding: 0.65rem 1.2rem; font-size: 0.8rem;">Join</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 FASHION FEVER Boutique Inc. All Rights Reserved.</span>
+        <div style="display: flex; gap: 1.5rem;">
+          <span>Secure 256-Bit SSL Encryption</span>
+          <span>UPI / Cards / Net Banking / COD</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/products.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
